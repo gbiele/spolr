@@ -1,6 +1,8 @@
-rstan_create_package("sporl",
+rstan_create_package("spolr",
                      stan_files = c("H:/misc/spolr/inst/stan/slogreg.stan",
-                                    "H:/misc/spolr/inst/stan/spolr.stan"),
+                                    "H:/misc/spolr/inst/stan/spolr.stan",
+                                    "H:/misc/spolr/inst/stan/spolrn.stan",
+                                    "H:/misc/spolr/inst/stan/sbinomial.stan"),
                      travis = F)
 pkgbuild::compile_dll()
 roxygen2::roxygenize()
