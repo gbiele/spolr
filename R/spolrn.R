@@ -17,7 +17,7 @@
 #' prior of regression weights to two.
 #'
 spolrn <- function(formula,data, scale.X = T, sd_prior_b = 2) {
-  standata = make_standata.spolr(formula, data = data, ordinal = T,
+  standata = make_standata.spolr(formula, data = data, family = "cumulative",
                                  scale.X = scale.X, sd_prior_b = sd_prior_b)
   out <- rstan::optimizing(stanmodels$spolrn, data = standata)
   out$beta = head(out$par,standata$K)
@@ -45,7 +45,7 @@ predict.spolrn = function(object, newdata, type= c("probs","class"), method = "l
   } else {
     standata = make_standata.spolr(object$formula,
                                    data = newdata,
-                                   ordinal = T,
+                                   family = "cumulative",
                                    scale.X = object$scale.X,
                                    X.means = object$standata$X.means,
                                    X.sds = object$standata$X.sds,

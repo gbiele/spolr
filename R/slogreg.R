@@ -17,7 +17,7 @@
 #' prior of regression weights to two.
 #'
 slogreg <- function(formula,data,scale.X = T, sd_prior_b = 2) {
-  standata = make_standata.spolr(formula, data = data, ordinal = F,
+  standata = make_standata.spolr(formula, data = data, family = "bernoulli",
                                  scale.X = scale.X, sd_prior_b = sd_prior_b)
   out <- rstan::optimizing(stanmodels$slogreg, data = standata)
   out$beta = head(out$par,standata$K)
@@ -45,7 +45,7 @@ predict.slogreg = function(object, newdata, type=c("probs", "class")) {
   } else {
     standata = make_standata.spolr(object$formula,
                                    data = newdata,
-                                   ordinal = F,
+                                   family = "bernoulli",
                                    scale.X = object$scale.X,
                                    X.means = object$standata$X.means,
                                    X.sds = object$standata$X.sds,

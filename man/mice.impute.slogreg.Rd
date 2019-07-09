@@ -19,7 +19,8 @@ variables by using the logistic regression model. The model is fit in Stan and
 uses weakly informative (shrinkage) priors to regularize.
 }
 \seealso{
-Other univariate imputation functions: \code{\link{mice.impute.spolr}}
+Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+  \code{\link{mice.impute.spolr}}
 }
 \author{
 Guido Biele
