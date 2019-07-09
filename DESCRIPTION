@@ -1,12 +1,12 @@
 Package: spolr
-Title: Bayesian logistic and ordinal regression for mice
+Title: Regularized Bayesian logistic, ordinal, and binomial regressions for mice
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Guido",
            family = "Biele",
            role = c("aut", "cre"),
            email = "guido.biele@fhi.no")
-Description: Runs logistic and ordinal regression programmed in Stan using simple optimization. The ordinal regression uses cumulative model and a logistic link function. Use case is imputations by multiple chained equations, where full Bayes would be to slow (mice.impute... functions are includes in the package). Normal(0,2) priors on regression coefficients in combination with standardized predictors for regularization.
+Description: Runs logistic, ordinal and binomial regressions programmed in Stan using simple optimization. The ordinal regression uses cumulative model and a logistic link function. Use case is imputations by multiple chained equations, where full Bayes would be to slow (mice.impute... functions are includes in the package). Normal(0,2) priors on regression coefficients in combination with standardized predictors for regularization.
 License: GPL (>=3)
 Encoding: UTF-8
 LazyData: true

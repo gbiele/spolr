@@ -1,6 +1,6 @@
 #' The 'spolr' package.
 #'
-#' @description Bayesian logistic and ordinal regression for mice (includes mice.impute...)
+#' @description Regularized Bayesian logistic, ordered logistic and binomial regression for the mice package.
 #'
 #' @docType package
 #' @name spolr-package
