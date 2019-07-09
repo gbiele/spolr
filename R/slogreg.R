@@ -5,14 +5,14 @@
 #' @param data data.frame.
 #' @param scale.X logical value indicating if predictors are scaled
 #' @param sd_prior_b standard deviation for the prior for regression weights
-#' @return An object of class `spolr` with the slots 
+#' @return An object of class `spolr` with the slots
 #' `par` and  `value` (taken from `stan::optimizing`),
 #' `standata` (data for stan model fit),
-#' `b` (regression weights), 
+#' `b` (regression weights),
 #' `Intercept` (interecept for regression model), and
 #' `formula` (R formula for regression model).
 #'
-#' Regularization is achieved by scaling predictors to mean zeros and 
+#' Regularization is achieved by scaling predictors to mean zeros and
 #' standard deviation of one and setting the standard deviation for the
 #' prior of regression weights to two.
 #'
@@ -30,7 +30,7 @@ slogreg <- function(formula,data,scale.X = T, sd_prior_b = 2) {
   return(out)
 }
 
-#' Prediction for sporl
+#' Prediction for slogreg
 #'
 #' @export
 #' @param object Object of class `spolr` (returned from function `spolr`).

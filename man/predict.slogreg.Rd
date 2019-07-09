@@ -2,7 +2,7 @@
 % Please edit documentation in R/slogreg.R
 \name{predict.slogreg}
 \alias{predict.slogreg}
-\title{Prediction for sporl}
+\title{Prediction for slogreg}
 \usage{
 \method{predict}{slogreg}(object, newdata, type = c("probs", "class"))
 }
@@ -17,5 +17,5 @@
 predicted reponses
 }
 \description{
-Prediction for sporl
+Prediction for slogreg
 }

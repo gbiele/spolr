@@ -16,14 +16,14 @@ slogreg(formula, data, scale.X = T, sd_prior_b = 2)
 \item{sd_prior_b}{standard deviation for the prior for regression weights}
 }
 \value{
-An object of class `spolr` with the slots 
+An object of class `spolr` with the slots
 `par` and  `value` (taken from `stan::optimizing`),
 `standata` (data for stan model fit),
-`b` (regression weights), 
+`b` (regression weights),
 `Intercept` (interecept for regression model), and
 `formula` (R formula for regression model).
 
-Regularization is achieved by scaling predictors to mean zeros and 
+Regularization is achieved by scaling predictors to mean zeros and
 standard deviation of one and setting the standard deviation for the
 prior of regression weights to two.
 }
