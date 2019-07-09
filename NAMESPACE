@@ -2,11 +2,13 @@
 
 S3method(predict,slogreg)
 S3method(predict,spolr)
+S3method(predict,spolrn)
 export(make_standata.spolr)
 export(mice.impute.slogreg)
 export(mice.impute.spolr)
 export(slogreg)
 export(spolr)
+export(spolrn)
 import(Rcpp)
 import(methods)
 importFrom(rstan,sampling)

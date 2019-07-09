@@ -9,10 +9,12 @@ using namespace Rcpp;
 
 RcppExport SEXP _rcpp_module_boot_stan_fit4slogreg_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4spolr_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4spolrn_mod();
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rcpp_module_boot_stan_fit4slogreg_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4slogreg_mod, 0},
     {"_rcpp_module_boot_stan_fit4spolr_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4spolr_mod, 0},
+    {"_rcpp_module_boot_stan_fit4spolrn_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4spolrn_mod, 0},
     {NULL, NULL, 0}
 };
 

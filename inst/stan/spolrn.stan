@@ -17,6 +17,7 @@ model {
   target += student_t_lpdf(Intercept | 3, 0, 10);
   target += normal_lpdf(b | 0, sd_prior_b);
   // likelihood including all constants
-  target += ordered_logistic_lpmf(Y | mu, Intercept);
-
+    for (n in 1:N) {
+      target += ordered_logistic_lpmf(Y[n] | mu[n], Intercept);
+    }
 }

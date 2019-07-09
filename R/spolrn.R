@@ -16,10 +16,10 @@
 #' standard deviation of one and setting the standard deviation for the
 #' prior of regression weights to two.
 #'
-spolr <- function(formula,data, scale.X = T, sd_prior_b = 2) {
+spolrn <- function(formula,data, scale.X = T, sd_prior_b = 2) {
   standata = make_standata.spolr(formula, data = data, ordinal = T,
                                  scale.X = scale.X, sd_prior_b = sd_prior_b)
-  out <- rstan::optimizing(stanmodels$spolr, data = standata)
+  out <- rstan::optimizing(stanmodels$spolrn, data = standata)
   out$beta = head(out$par,standata$K)
   names(out$beta) = colnames(standata$X)
   out$zeta = tail(out$par,standata$ncat-1)
@@ -30,7 +30,7 @@ spolr <- function(formula,data, scale.X = T, sd_prior_b = 2) {
   return(out)
 }
 
-#' Prediction for spolr_vectorized
+#' Prediction for spolrn
 #'
 #' @export
 #' @param object Object of class `spolr` (returned from function `spolr`).
@@ -38,7 +38,7 @@ spolr <- function(formula,data, scale.X = T, sd_prior_b = 2) {
 #' @param type kind of predictions (probabilities, `probs` - or highest probability response, `class`).
 #' @return predicted reponses
 #'
-predict.spolr = function(object, newdata, type= c("probs","class"), method = "logistic") {
+predict.spolrn = function(object, newdata, type= c("probs","class"), method = "logistic") {
   type <- match.arg(type)
   if(missing(newdata)) {
     standata = object$standata

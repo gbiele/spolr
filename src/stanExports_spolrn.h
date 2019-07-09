@@ -22,7 +22,7 @@
 
 #include <stan/model/model_header.hpp>
 
-namespace model_spolr_namespace {
+namespace model_spolrn_namespace {
 
 using std::istream;
 using std::string;
@@ -37,13 +37,13 @@ static int current_statement_begin__;
 
 stan::io::program_reader prog_reader__() {
     stan::io::program_reader reader;
-    reader.add_event(0, 0, "start", "model_spolr");
-    reader.add_event(24, 22, "end", "model_spolr");
+    reader.add_event(0, 0, "start", "model_spolrn");
+    reader.add_event(25, 23, "end", "model_spolrn");
     return reader;
 }
 
 #include <stan_meta_header.hpp>
- class model_spolr : public prob_grad {
+ class model_spolrn : public prob_grad {
 private:
         int N;
         std::vector<int> Y;
@@ -52,13 +52,13 @@ private:
         double sd_prior_b;
         int ncat;
 public:
-    model_spolr(stan::io::var_context& context__,
+    model_spolrn(stan::io::var_context& context__,
         std::ostream* pstream__ = 0)
         : prob_grad(0) {
         ctor_body(context__, 0, pstream__);
     }
 
-    model_spolr(stan::io::var_context& context__,
+    model_spolrn(stan::io::var_context& context__,
         unsigned int random_seed__,
         std::ostream* pstream__ = 0)
         : prob_grad(0) {
@@ -76,7 +76,7 @@ public:
 
         current_statement_begin__ = -1;
 
-        static const char* function__ = "model_spolr_namespace::model_spolr";
+        static const char* function__ = "model_spolrn_namespace::model_spolrn";
         (void) function__;  // dummy to suppress unused var warning
         size_t pos__;
         (void) pos__;  // dummy to suppress unused var warning
@@ -166,7 +166,7 @@ public:
         }
     }
 
-    ~model_spolr() { }
+    ~model_spolrn() { }
 
 
     void transform_inits(const stan::io::var_context& context__,
@@ -279,7 +279,11 @@ public:
             current_statement_begin__ = 18;
             lp_accum__.add(normal_log(b, 0, sd_prior_b));
             current_statement_begin__ = 20;
-            lp_accum__.add(ordered_logistic_log(Y, mu, Intercept));
+            for (int n = 1; n <= N; ++n) {
+
+                current_statement_begin__ = 21;
+                lp_accum__.add(ordered_logistic_log(get_base1(Y, n, "Y", 1), get_base1(mu, n, "mu", 1), Intercept));
+            }
             }
 
         } catch (const std::exception& e) {
@@ -335,7 +339,7 @@ public:
 
         vars__.resize(0);
         stan::io::reader<local_scalar_t__> in__(params_r__, params_i__);
-        static const char* function__ = "model_spolr_namespace::write_array";
+        static const char* function__ = "model_spolrn_namespace::write_array";
         (void) function__;  // dummy to suppress unused var warning
 
         // read-transform, write parameters
@@ -389,7 +393,7 @@ public:
     }
 
     static std::string model_name() {
-        return "model_spolr";
+        return "model_spolrn";
     }
 
 
@@ -448,7 +452,7 @@ public:
 
 }  // namespace
 
-typedef model_spolr_namespace::model_spolr stan_model;
+typedef model_spolrn_namespace::model_spolrn stan_model;
 
 
 #endif
