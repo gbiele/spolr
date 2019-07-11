@@ -20,6 +20,7 @@ uses weakly informative (shrinkage) priors to regularize.
 }
 \seealso{
 Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+  \code{\link{mice.impute.sbygroup}},
   \code{\link{mice.impute.slogreg}},
   \code{\link{mice.impute.spolr}}
 }
