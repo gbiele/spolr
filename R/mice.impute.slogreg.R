@@ -27,8 +27,12 @@ mice.impute.slogreg <- function(y, ry, x, wy = NULL, ...)
   draws <- post > runif(length(post))
   if (class(y) == "factor") {
     idx <- 1 + draws
-    return(levels(y)[idx])
+    imputations = levels(y)[idx]
   } else {
-    return(draws)
+    imputations = draws
   }
+  fit$standata$X = NULL
+  fit$standata$Y = NULL
+  attr(imputations,"spolr.fit") = fit
+  return(imputations)
 }

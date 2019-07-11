@@ -34,5 +34,9 @@ mice.impute.spolr <- function(y, ry, x, wy = NULL, ...)
     post <- matrix(c(1 - post, post), ncol = 2)
   draws <- un > apply(post, 1, cumsum)
   idx <- 1 + apply(draws, 2, sum)
-  return(levels(fy)[idx])
+  imputations = levels(fy)[idx]
+  fit$standata$X = NULL
+  fit$standata$Y = NULL
+  attr(imputations,"spolr.fit") = fit
+  return(imputations)
 }

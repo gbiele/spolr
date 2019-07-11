@@ -21,6 +21,7 @@ uses weakly informative (shrinkage) priors to regularize
 }
 \seealso{
 Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+  \code{\link{mice.impute.sgauss}},
   \code{\link{mice.impute.slogreg}}
 }
 \author{

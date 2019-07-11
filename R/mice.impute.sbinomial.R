@@ -24,5 +24,9 @@ mice.impute.sbinomial <- function(y, ry, x, wy = NULL, ...)
   xy <- cbind.data.frame(y = y, x = x)
 
   fit = suppressWarnings(sbinomial(formula(xy), data = xy[ry, , drop = FALSE]))
-  return(predict(fit, xy[wy, , drop = FALSE], type = "response"))
+  imputations = predict(fit, xy[wy, , drop = FALSE], type = "response")
+  fit$standata$X = NULL
+  fit$standata$Y = NULL
+  attr(imputations,"spolr.fit") = fit
+  return(imputations)
 }

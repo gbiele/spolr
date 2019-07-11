@@ -21,7 +21,8 @@ model is also known as the cumulative link model. The model is fit in Stan and
 uses weakly informative (shrinkage) priors to regularize
 }
 \seealso{
-Other univariate imputation functions: \code{\link{mice.impute.slogreg}},
+Other univariate imputation functions: \code{\link{mice.impute.sgauss}},
+  \code{\link{mice.impute.slogreg}},
   \code{\link{mice.impute.spolr}}
 }
 \author{
