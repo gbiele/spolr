@@ -24,9 +24,9 @@ mice.impute.sgauss <- function(y, ry, x, wy = NULL, ...)
 
   fit = suppressWarnings(sgauss(formula(xy), data = xy[ry, , drop = FALSE]))
   imputations <- predict(fit, xy[wy, , drop = FALSE])
-
   fit$standata$X = NULL
   fit$standata$Y = NULL
+  attr(fit$formula,".Environment") = NULL
   attr(imputations,"spolr.fit") = fit
   return(imputations)
 }

@@ -33,6 +33,7 @@ mice.impute.slogreg <- function(y, ry, x, wy = NULL, ...)
   }
   fit$standata$X = NULL
   fit$standata$Y = NULL
+  attr(fit$formula,".Environment") = NULL
   attr(imputations,"spolr.fit") = fit
   return(imputations)
 }

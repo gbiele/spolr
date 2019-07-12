@@ -37,6 +37,7 @@ mice.impute.spolr <- function(y, ry, x, wy = NULL, ...)
   imputations = levels(fy)[idx]
   fit$standata$X = NULL
   fit$standata$Y = NULL
+  attr(fit$formula,".Environment") = NULL
   attr(imputations,"spolr.fit") = fit
   return(imputations)
 }

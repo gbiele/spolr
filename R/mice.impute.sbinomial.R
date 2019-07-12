@@ -27,6 +27,7 @@ mice.impute.sbinomial <- function(y, ry, x, wy = NULL, ...)
   imputations = predict(fit, xy[wy, , drop = FALSE], type = "response")
   fit$standata$X = NULL
   fit$standata$Y = NULL
+  attr(fit$formula,".Environment") = NULL
   attr(imputations,"spolr.fit") = fit
   return(imputations)
 }
