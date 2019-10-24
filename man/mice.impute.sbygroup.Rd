@@ -21,9 +21,11 @@ of groups, whereby each entry of the list is a spolr.fit object for
 a group
 }
 \seealso{
-Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+Other univariate imputation functions: \code{\link{mice.impute.sbetabin}},
+  \code{\link{mice.impute.sbinomial}},
   \code{\link{mice.impute.sgauss}},
   \code{\link{mice.impute.slogreg}},
+  \code{\link{mice.impute.snegbin}},
   \code{\link{mice.impute.spolr}}
 }
 \author{

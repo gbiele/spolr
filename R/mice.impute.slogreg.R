@@ -1,6 +1,6 @@
-#'Imputation of ordered data by bayesian ordered logistic regression
+#'Imputation using bayesian regularized regression
 #'
-#'Imputes missing data in a categorical variable using polytomous regression
+#'Imputes missing data in a categorical variable using logitstic regression
 #'@aliases mice.impute.slogreg
 #'@return Vector with imputed data, same type as \code{y}, and of length
 #'\code{sum(wy)}

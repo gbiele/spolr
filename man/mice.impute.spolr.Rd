@@ -2,7 +2,7 @@
 % Please edit documentation in R/mice.impute.spolr.R
 \name{mice.impute.spolr}
 \alias{mice.impute.spolr}
-\title{Imputation of ordered data by bayesian ordered logistic regression}
+\title{Imputation using bayesian regularized regression}
 \usage{
 mice.impute.spolr(y, ry, x, wy = NULL, ...)
 }
@@ -20,10 +20,12 @@ model is also known as the cumulative link model. The model is fit in Stan and
 uses weakly informative (shrinkage) priors to regularize
 }
 \seealso{
-Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+Other univariate imputation functions: \code{\link{mice.impute.sbetabin}},
+  \code{\link{mice.impute.sbinomial}},
   \code{\link{mice.impute.sbygroup}},
   \code{\link{mice.impute.sgauss}},
-  \code{\link{mice.impute.slogreg}}
+  \code{\link{mice.impute.slogreg}},
+  \code{\link{mice.impute.snegbin}}
 }
 \author{
 Guido Biele

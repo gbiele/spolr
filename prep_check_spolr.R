@@ -2,11 +2,15 @@ rstan_create_package("spolr",
                      stan_files = c("H:/misc/spolr/inst/stan/slogreg.stan",
                                     "H:/misc/spolr/inst/stan/spolr.stan",
                                     "H:/misc/spolr/inst/stan/spolrn.stan",
-                                    "H:/misc/spolr/inst/stan/sbinomial.stan"),
+                                    "H:/misc/spolr/inst/stan/sbinomial.stan",
+                                    "H:/misc/spolr/inst/stan/snegbin.stan",
+                                    "H:/misc/spolr/inst/stan/sbetabin.stan"),
                      travis = F)
 pkgbuild::compile_dll()
 roxygen2::roxygenize()
-devtools::install(local=FALSE)
+install.packages("../spolr", repos = NULL, type = "source")
+#devtools::install(local=FALSE, quick = TRUE)
+
 
 library(spolr)
 library(mice)
@@ -16,14 +20,14 @@ library(MASS)
 library(brms)
 library(rstan)
 mydata = wine
-mydata$tmp = ((as.numeric(mydata$rating) + rnorm(72,3)) > 6)
+mydata$tmp = factor((as.numeric(mydata$rating) + rnorm(72,3)) > 6)
 
 
 fit_spolr = spolr(rating ~ bottle, mydata)
 fit_polr = polr(rating ~ bottle, mydata)
 fit_stan_polr = stan_polr(rating ~ bottle, mydata, prior = R2(0.1,"mean"), chains = 1)
 
-fit_slogreg = slogreg(tmp ~ bottle, mydata, scale = F, sd_prior_b = 3)$beta
+fit_slogreg = slogreg(tmp ~ bottle, mydata, scale = F, sd_prior_b = 10)$beta
 fit_gml = glm(tmp ~ bottle, mydata, family = "binomial")
 
 brms_stan_model_code = make_stancode(rating ~ bottle, mydata, family = "cumulative")

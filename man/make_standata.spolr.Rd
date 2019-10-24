@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_standata.spolr.R
 \name{make_standata.spolr}
 \alias{make_standata.spolr}
-\title{Make standata for ordered logistic or binomial regression in stan}
+\title{Make standata for regularized regressions in stan}
 \usage{
 make_standata.spolr(formula, data, family = "cumulative",
   sd_prior_b = 2, scale.X = T, X.means, X.sds)
@@ -40,5 +40,5 @@ It does not include an interecept, which is instead implemented in the Stan prog
 By default, each column in X is scaled to mean zero and sd 1.
 }
 \description{
-Make standata for ordered logistic or binomial regression in stan
+Make standata for regularized regressions in stan
 }

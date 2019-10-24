@@ -1,1 +1,4 @@
 .Rproj.user
+src/*
+src-i386/*
+src-x64/*

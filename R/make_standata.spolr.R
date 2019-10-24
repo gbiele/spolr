@@ -1,4 +1,4 @@
-#' Make standata for ordered logistic or binomial regression in stan
+#' Make standata for regularized regressions in stan
 #'
 #' @export
 #' @param formula Formula.
@@ -59,7 +59,7 @@ make_standata.spolr = function(formula, data, family = "cumulative",
   if (family == "cumulative")
     standata$ncat = length(unique(Y))
 
-  if (family == "binomial")
+  if (family == "binomial" | family == "betabin")
     standata$trials = max(Y)
   return(standata)
 }

@@ -1,4 +1,4 @@
-#'Imputation of ordered data by bayesian ordered logistic regression
+#'Imputation using bayesian regularized regression
 #'
 #'Imputes missing data in a normally distributed variable
 #'@aliases mice.impute.sgauss

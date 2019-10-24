@@ -2,7 +2,7 @@
 % Please edit documentation in R/mice.impute.sgauss.R
 \name{mice.impute.sgauss}
 \alias{mice.impute.sgauss}
-\title{Imputation of ordered data by bayesian ordered logistic regression}
+\title{Imputation using bayesian regularized regression}
 \usage{
 mice.impute.sgauss(y, ry, x, wy = NULL, ...)
 }
@@ -19,9 +19,11 @@ variables by using the gaussian regression model. The model is fit in Stan and
 uses weakly informative (shrinkage) priors to regularize.
 }
 \seealso{
-Other univariate imputation functions: \code{\link{mice.impute.sbinomial}},
+Other univariate imputation functions: \code{\link{mice.impute.sbetabin}},
+  \code{\link{mice.impute.sbinomial}},
   \code{\link{mice.impute.sbygroup}},
   \code{\link{mice.impute.slogreg}},
+  \code{\link{mice.impute.snegbin}},
   \code{\link{mice.impute.spolr}}
 }
 \author{
